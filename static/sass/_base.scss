@@ -1,0 +1,38 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 4;
+$column-width   : 16em;
+$column-height 	: $column-width;
+$gutter-width   : 0em;
+$grid-padding   : $gutter-width;
+
+$show-grid-backgrounds  : true;
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+.clearfix {
+    @include clearfix;
+}
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('font/roboto-regular-webfont.eot');
+    src: url('font/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/roboto-regular-webfont.woff') format('woff'),
+         url('font/roboto-regular-webfont.ttf') format('truetype'),
+         url('font/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

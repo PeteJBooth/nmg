@@ -1,0 +1,142 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "base";
+
+/* -------------------------------------------------------------------------*/
+/* Layout */
+
+*{
+	font-family: 'robotoregular';
+}
+
+body {
+	margin:0;
+	padding: 0;
+	background-color: #e1e1e1;
+}
+
+header { 
+	a#logo {
+		display:block;		
+		img{
+			display: block;
+			margin:0px auto 20px auto;
+			padding: 10px 0 0 0;
+		}
+	}
+	nav {
+		text-align: center;
+		ul{
+			@include clearfix;
+			margin:0px auto 20px auto;
+			padding:0;
+			display: inline-block;
+	        /* For IE, the outcast */
+	        zoom:1;
+	        *display: inline;
+			:first-child {
+				border:none;
+			}
+			li {
+				border-left:1px solid #e1e1e1;
+				float: left;
+				font-size: 1em;
+				list-style: none;
+				padding:0 20px;
+
+				a {
+					text-decoration: none;
+					color: #2A2A2A;
+				}
+				
+			}
+			li.selected {
+				a {
+					color:#888888;
+				}
+			}
+		}
+	}
+	div.hr {
+		border-top: 3px #e1e1e1 solid;
+		height:0;
+		margin	:1em;
+	}
+}
+
+.container {
+  @include container;
+  background-color: #ffffff;
+
+  .panel {
+		@include span-columns(1,4);
+		height: $column-height;
+		&:nth-child(4n) { @include omega; }
+		overflow: hidden;
+		position: relative;
+ 		img {
+			position:absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+		p,h2 {
+			position: relative;
+			z-index: 3;
+			color: #ffffff;
+			padding:20px 0 0 20px; 	
+			width: 50%;
+			margin: 0;
+		}
+		h2 {
+			font-size: 21px;
+		}
+		p {
+			font-size:14px;
+			width: 42%;
+		}
+
+		a.read-more {
+			display:block;
+			position:absolute;
+			bottom:20px;
+			right: 20px;
+			background-color: #ffffff;
+			color: #000000;
+			z-index: 3;
+			text-decoration: none;
+			padding: 7px;
+			font-weight: bold;
+			font-size: 15px
+		}
+
+	}
+
+	.panel-content:before {
+		content:'';
+		width: 0px;
+		height: 0px;
+		border-left: $column-height solid transparent;
+		border-right: $column-height solid transparent;
+		//border-top: $column-height solid rgba(39, 199, 209, .8);
+		display: block;
+		position: absolute;
+		top: 0px;
+		left: $column-height*-1;
+		z-index: 2;
+	}
+
+	.panel-content.web-app:before {
+		border-top: $column-height solid rgba(39, 199, 209, 0.9);
+	}
+	.panel-content.web:before {
+		border-top: $column-height solid rgba(238, 153, 6, 0.9);
+	}
+	.panel-content.app:before {
+		border-top: $column-height solid rgba(238, 158, 19, 0.9);
+	}
+}
+
+
+ 
