@@ -21,7 +21,7 @@ log/*.log
 *.sass-cache*
 
 # Ignore rendered styles (we have version control on the sass files instead)
-nmg/static/css/
+static/css/*.css
 
 # Common IDEs
 .idea/
@@ -35,6 +35,6 @@ atlassian-ide-plugin.xml
 .DS_Store
 
 # Ignore user-uploaded media files.
-nmg/media/ # Amend this if media files are not under /media/
+media/* # Amend this if media files are not under /media/
 
 
