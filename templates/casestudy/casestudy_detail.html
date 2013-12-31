@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load cms_tags thumbnail%}
+
+{% block pagetitle %}
+<h1>{{ casestudy.name }}</h1>
+{% endblock %}
+
+{% block content %} 
+	<div>
+		<strong>Role: </strong> {{casestudy.role}} / <strong>Agency: </strong> {{ casestudy.agency }}
+	</div>
+	<div class="highlight">
+		<div class="brief">
+			{{casestudy.portfolio_introduction}}
+		</div>
+		<div class="copy">
+			{{casestudy.main_copy}}
+		</div>
+	</div>
+	<div id="casestudy_carousel">
+		{% for casestudy_image in casestudy.gallery.all %}
+			<img src="{% thumbnail casestudy_image.image 1024x366 crop upscale subject_location=casestudy_image.image.subject_location %}" >
+		{% endfor %}
+	</div>
+	<div id="back_link">
+		<a href="{% url 'portfolio_list' %}">Back to portfolio</a>
+	</div>
+	<div id="featured_casestudies">
+		{% for casestudy in featured_casestudies %}
+		<div class="panel">
+			<a class="read-more" href="{{ casestudy.get_absolute_url }}">Read more</a> 
+		  	<img src="{% thumbnail casestudy.image 350x350 crop upscale subject_location=casestudy.image.subject_location %}" height="256"
+		  	alt="{{ casestudy.name }}">
+		  	<div class="panel-content {{casestudy.project_type }}"></div>
+		   	<h2>{{ casestudy.name }}</h2>
+		    <p>{{ casestudy.promo_teaser }}</p>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock content %}

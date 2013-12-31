@@ -1,0 +1,55 @@
+{% load cms_tags menu_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}nix{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <!--<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="{{ STATIC_URL }}css/screen.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- This file store project specific CSS -->
+    <link href="{{ STATIC_URL }}css/project.css" rel="stylesheet">
+
+    <!-- Use this to quickly test CSS changes in a template, 
+        then move to project.css -->
+    {% block extra_css %}{% endblock extra_css %}
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+          <a href="/" id="logo"><img src="{{ STATIC_URL }}img/nmg_logo.png" alt="Nicola Michelle Green" width="80" height="27" /></a>
+          <nav>
+            <ul>
+              {% show_menu %}
+            </ul>
+          </nav>
+          <div class="hr"></div>
+          {% block pagetitle %}{% endblock %}
+      </header>
+      {% block content %} 
+      {% endblock content %}
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+
+    <script src="{{ STATIC_URL }}js/project.js"></script>
+
+    {% block extra_js %}{% endblock extra_js %}
+  </body>
+</html>

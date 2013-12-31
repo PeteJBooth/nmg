@@ -1,0 +1,40 @@
+# Python bytecode:
+*.py[co]
+
+# Packaging files:
+*.egg*
+
+# Editor temp files:
+*.swp
+*~
+
+# Sphinx docs:
+_build
+
+# SQLite3 database files:
+*.db
+
+# Logs:
+log/*.log
+
+# Ignore sass-cache files.
+*.sass-cache*
+
+# Ignore rendered styles (we have version control on the sass files instead)
+nmg/static/css/
+
+# Common IDEs
+.idea/
+.buildpath
+.project
+.pydevproject
+.settings
+atlassian-ide-plugin.xml
+
+# Operating system files.
+.DS_Store
+
+# Ignore user-uploaded media files.
+nmg/media/ # Amend this if media files are not under /media/
+
+

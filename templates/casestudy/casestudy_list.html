@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load cms_tags thumbnail%}
+
+{% block pagetitle %}
+<h1>{% page_attribute "title" %}</h1>
+{% endblock %}
+
+
+{% block content %} 
+	<ul id="project-type-key">
+		<li class="web">Website design</li>
+		<li class="app">App design</li>
+		<li class="web-app">Website and app design</li>
+	</ul>
+	{% for casestudy in object_list %}
+	<div class="panel">
+		<a class="read-more" href="{{ casestudy.get_absolute_url }}">Read more</a> 
+	  	<img src="{% thumbnail casestudy.image 350x350 crop upscale subject_location=casestudy.image.subject_location %}" height="256"
+	  	alt="{{ casestudy.name }}">
+	  	<div class="panel-content {{casestudy.project_type }}"></div>
+	   	<h2>{{ casestudy.name }}</h2>
+	    <p>{{ casestudy.promo_teaser }}</p>
+	</div>
+	{% endfor %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% load thumbnail %}
+
+<div class="panel">
+	<a class="read-more" href="#gfsgrsg">Read more</a> 
+  	<img src="{% thumbnail casestudy.image 350x350 crop upscale subject_location=casestudy.image.subject_location %}" height="256"
+  	alt="{{ casestudy.name }}">
+  	<div class="panel-content {{casestudy.project_type }}"></div>
+   	<h2>{{ casestudy.name }}</h2>
+    <p>{{ casestudy.promo_teaser }}</p>
+
+</div>
