@@ -21,7 +21,7 @@ header {
 		display:block;		
 		img{
 			display: block;
-			margin:0px auto 20px auto;
+			margin:0px auto $default-spacing auto;
 			padding: 10px 0 0 0;
 		}
 	}
@@ -29,7 +29,7 @@ header {
 		text-align: center;
 		ul{
 			@include clearfix;
-			margin:0px auto 20px auto;
+			margin:0px auto $default-spacing auto;
 			padding:0;
 			display: inline-block;
 	        /* For IE, the outcast */
@@ -43,7 +43,7 @@ header {
 				float: left;
 				font-size: 1em;
 				list-style: none;
-				padding:0 20px;
+				padding:0 $default-spacing;
 
 				a {
 					text-decoration: none;
@@ -69,10 +69,58 @@ header {
   @include container;
   background-color: #ffffff;
 
+  #home-carousel {
+  	.slide {
+  		.slide-text {
+  			@include span-columns(1,4);
+  			
+  			font-size: 14px;
+  			float:left; 
+
+  			h2 {
+  				text-transform:uppercase;
+  				font-size:24px;
+  				margin: $default-spacing 0;
+  			}
+
+  			.text-padding{
+  				padding:0 1em;
+
+  				a.read-more {
+  					display: inline-block;
+					//position:absolute;
+					//bottom:20px;
+					//right: 20px;
+					background-color: #000000;
+					color: #ffffff;
+					z-index: 3;
+					text-decoration: none;
+					padding: 7px;
+					font-weight: bold;
+					font-size: 15px;
+					margin-top: $default-spacing;
+				}
+
+				p {
+					margin-bottom: $default-spacing;
+				}
+  			}
+
+
+  			
+  		}
+  		img {
+  			@include span-columns(3,4);
+		}
+
+  	}
+  	.owl-page > span{
+		@include rotate(45deg);
+	}
+  }
+
   .panel {
-		@include span-columns(1,4);
 		height: $column-height;
-		&:nth-child(4n) { @include omega; }
 		overflow: hidden;
 		position: relative;
  		img {
@@ -80,6 +128,7 @@ header {
 			top: 0;
 			left: 0;
 			z-index: 1;
+			width: 100%;
 		}
 		p,h2 {
 			position: relative;
@@ -112,28 +161,16 @@ header {
 		}
 
 	}
-
-	.panel-content:before {
-		content:'';
-		width: 0px;
-		height: 0px;
-		border-left: $column-height solid transparent;
-		border-right: $column-height solid transparent;
-		//border-top: $column-height solid rgba(39, 199, 209, .8);
-		display: block;
-		position: absolute;
-		top: 0px;
-		left: $column-height*-1;
-		z-index: 2;
-	}
-
-	.panel-content.web-app:before {
+	.color-flash.web-app {
+		@include color-flash;
 		border-top: $column-height solid rgba(39, 199, 209, 0.9);
 	}
-	.panel-content.web:before {
+	.color-flash.web {
+		@include color-flash;
 		border-top: $column-height solid rgba(238, 153, 6, 0.9);
 	}
-	.panel-content.app:before {
+	.color-flash.app {
+		@include color-flash;
 		border-top: $column-height solid rgba(238, 158, 19, 0.9);
 	}
 }

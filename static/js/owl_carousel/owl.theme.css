@@ -1,0 +1,35 @@
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.24
+*/
+
+.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 8px;
+	height: 8px;
+	margin: 10px 8px 15px 8px;
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	/*webkit-border-radius: 20px;
+	moz-border-radius: 20px;
+	order-radius: 20px;*/
+	background: #000000;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+}

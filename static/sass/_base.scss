@@ -2,15 +2,21 @@
 // Imports
 
 @import "susy";
+@import "compass/css3/transform";
 
 // ---------------------------------------------------------------------------
 // Basic Grid
 
 $total-columns  : 4;
+$break-320: 320px;
+$break-486: 486px;
+$break-768: 768px;
+$break-max: 1024px;
 $column-width   : 16em;
 $column-height 	: $column-width;
 $gutter-width   : 0em;
 $grid-padding   : $gutter-width;
+$default-spacing  : 0.6em;
 
 $show-grid-backgrounds  : true;
 
@@ -24,6 +30,18 @@ $show-grid-backgrounds  : true;
 .clearfix {
     @include clearfix;
 }
+@mixin color-flash {
+   width: 0px;
+    height: 0px;
+    border-left: $column-height solid transparent;
+    border-right: $column-height solid transparent;
+    //border-top: $column-height solid rgba(39, 199, 209, .8);
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: $column-height*-1;
+    z-index: 2;
+}
 
 
 @font-face {
@@ -36,3 +54,27 @@ $show-grid-backgrounds  : true;
     font-weight: normal;
     font-style: normal;
 }
+@media only screen and (min-width: $break-768) { 
+    .panel {
+        @include span-columns(1,4);
+        &:nth-child(4n) { @include omega; }
+    }
+}
+@media only screen and (max-width: $break-768) { 
+    .panel {
+        @include span-columns(2,4);
+        &:nth-child(2n) { @include omega; }
+
+    }
+}
+@media only screen and (max-width: $break-320) { 
+    .panel {
+        @include span-columns(4,4);
+        &:nth-child(1n) { @include omega; }
+
+         p {
+            display:none;
+        }
+    }
+}
+

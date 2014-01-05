@@ -110,6 +110,18 @@ CMS_TEMPLATES = (
     ('home.html', 'Home'),
 )
 
+CMS_PLACEHOLDER_CONF = {
+    'carousel': {
+        'plugins': ('CaseStudyCarouselPlugin',),
+    },
+    'featured_casestudies': {
+        "plugins": ('CaseStudyPlugin',),
+        'limits': {
+            'global': 4,
+        },
+    },
+}
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

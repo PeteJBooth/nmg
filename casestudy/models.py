@@ -38,12 +38,10 @@ class CaseStudy(Sortable,Fancy):
 
 
 class CaseStudyPlugin(CMSPlugin):
-    #  The plugin model can have any fields it wants.
-    #  They are the fields that get displayed if you edit the plugin.
     casestudy = models.ForeignKey(CaseStudy)
 
     def __unicode__(self):
-        return self.casestudy.namey
+        return self.casestudy.name
 
 class CaseStudyImage(Sortable):
     property = models.ForeignKey(CaseStudy,related_name='gallery', blank=True ,null=True)
@@ -51,3 +49,14 @@ class CaseStudyImage(Sortable):
 
     class Meta(Sortable.Meta):
         pass
+
+class CaseStudyCarouselSlide(CMSPlugin):
+    casestudy = models.ForeignKey(CaseStudy,help_text='The case study to link to via the Read more link')
+    title = models.CharField(max_length=100, blank=False, )
+    copy = models.TextField(blank=False,)
+    image = FilerImageField(null=True, blank=False, help_text="We recommend using the largest, highest quality image you can.\
+        Images are automatically resized/cropped before being displayed on the site. Don't forget to set the location of the \
+        subject via the image management interface")
+
+    def __unicode__(self):
+        return self.title

@@ -1,0 +1,14 @@
+{% load thumbnail %}
+
+<div class="slide">
+	<div class="slide-text">
+		<div class="text-padding">
+			<h2>{{object.title}}</h2>
+			<p>{{ object.copy }}</p>
+			<a class="read-more" href="{{ casestudy.get_absolute_url }}">Read more</a> 
+		</div>
+	</div>
+	<img src="{% thumbnail casestudy.image 775x350 crop upscale subject_location=casestudy.image.subject_location %}"
+  	alt="{{ casestudy.name }}">
+	
+</div>
