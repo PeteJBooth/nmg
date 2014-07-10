@@ -48,7 +48,29 @@ header {
 				a {
 					text-decoration: none;
 					color: #2A2A2A;
+					display: block;
+					position: relative;
+
+					&:hover::before{
+						width: 100%;
+					}
+
+					&::before{
+						position: absolute;
+						top: 0;
+						left: 0;
+						overflow: hidden;
+						padding: 0;
+						width: 0;
+						border-bottom: 1px solid #000;
+						color: #000;
+						content: '\0000a0';
+						@include transition-property(width);
+						@include transition-duration(0.5s);
+					}
 				}
+
+
 				
 			}
 			li.selected {
